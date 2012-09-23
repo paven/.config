@@ -10,6 +10,7 @@ require("naughty")
 -- Load Debian menu entries
 require("debian.menu")
 
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -381,11 +382,14 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 awful.util.spawn_with_shell("run_once nm-applet")
 awful.util.spawn_with_shell("/home/paven/.screenlayout/20120911.sh")
 awful.util.spawn_with_shell("run_once gnome-sound-applet")
-
+awful.util.spawn_with_shell("xset -dpms")
+awful.util.spawn_with_shell("xset s off")
+awful.util.spawn_with_shell("xset s noblank")
 awful.util.spawn_with_shell("run_once amarok")
 
---Needs network
 
+--Needs network
+awful.util.spawn_with_shell("dropbox start")
 awful.util.spawn_with_shell("run_once skype")
 awful.util.spawn_with_shell("run_once azureus")
 awful.util.spawn_with_shell("run_once chromium-browser")
