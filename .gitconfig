@@ -1,0 +1,15 @@
+[user]
+	email = patrik.gustafsson@purplescout.se
+	name = Patrik Gustafsson
+[core]
+	whitespace = trailing-space,space-before-tab
+[apply]
+	whitespace = fix
+[merge]
+	ff = only
+[branch "master"]
+	mergeoptions = --ff-only
+[push]
+	default = simple
+[branch]
+	autosetuprebase = always
