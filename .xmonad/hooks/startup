@@ -1,0 +1,2 @@
+#!/bin/bash
+xloadimage -onroot /usr/share/background/gnome/dark_ivy.jpg &

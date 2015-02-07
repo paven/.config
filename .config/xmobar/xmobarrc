@@ -1,0 +1,35 @@
+Config { font = "xft:mono-12"
+       , borderColor = "black"
+       , border = TopB
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = Top
+       , lowerOnStart = True
+       , pickBroadest = False
+       , persistent = False
+       , hideOnStart = False
+       , allDesktops = True
+       , overrideRedirect = False
+       , commands = [ Run DynNetwork  [ "-L", "50"
+                      , "-H","300"
+                      , "--normal" , "green"
+                      , "--high","red"
+                      ] 10
+                    , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+				    , Run Memory ["-t","Mem: <usedratio>%","-L","40","-H","70","-l","green","-n","orange","-h","red"] 10
+				    , Run Swap ["-t","Swap: <usedratio>%","-L","40","-H","70","-l","green","-n","orange","-h","red"] 10
+					, Run Date "<fc=#93a1a1>%a %Y-%m-%d %H:%M</fc>" "date" 10
+					    , Run MultiCpu    [ "-t", "Cpu: <total0>% <total1>% <total2>% <total3>%"
+                      , "-L", "5"
+                      ,"-H", "50"
+                      ,"-l", "green"
+                      ,"-n", "orange"
+                      ,"-h","red"
+                      ] 10
+                    , Run BatteryP ["BAT0"] ["-t","Batt: <acstatus> \[<left>% / <timeleft>\]","--","-O","<fc=green>!</fc>","-o","<fc=red>X</fc>","-f", "/sys/class/power_supply/ADP1/online"] 10
+                    ]
+
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %multicpu% | %memory% * %swap% | <action=`beesu gnome-control-center network & echo hej` button=1>Net: %dynnetwork%</action>  }{ <fc=#ee9a00>%date%</fc> | %battery% "
+       }

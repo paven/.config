@@ -7,6 +7,9 @@
 	whitespace = fix
 [merge]
 	ff = only
+	tool = vimdiff
+[apply]
+	whitespace = fix
 [branch "master"]
 	mergeoptions = --ff-only
 [push]

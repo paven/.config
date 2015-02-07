@@ -1,0 +1,1 @@
+changesInLastCommit | awk '/xml|java|html|css|js|json/ {print}'
