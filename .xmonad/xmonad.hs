@@ -4,10 +4,17 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
+
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Tabbed
 import XMonad.Layout.Accordion
+import XMonad.Layout.ThreeColumns
+import XMonad.Layout.NoBorders
+import XMonad.Layout.ResizableTile
+import XMonad.Layout.LayoutCombinators hiding ( (|||) )
+import XMonad.Layout.Named
+
 import System.Exit
 
 import qualified System.IO.UTF8
@@ -30,7 +37,7 @@ import qualified Data.Map as M
 import XMonad.Actions.CycleWS
 import XMonad.Util.Run
 import XMonad.Actions.FloatSnap
-import XMonad.Layout.LayoutCombinators hiding ( (|||) )
+
 
 
 
@@ -53,7 +60,28 @@ myBar = "xmobar"
 myTerminal      = "mate-terminal"
 
 myWorkspaces = ["1:main", "2:later" , "2:steam"]
-mylayoutHook = Full ||| tabbed shrinkText defaultTheme ||| Accordion
+mylayoutHook = avoidStruts $
+                named "tall" (smartBorders resizeTiled) 
+            ||| named "three" (smartBorders threeCol) 
+            ||| named "borderFull" (smartBorders Full)
+            ||| tabbed shrinkText defaultTheme 
+  where
+     -- default tiling algorithm partitions the screen into two panes
+     
+     threeCol    = ThreeCol nmaster delta ratio
+
+     tiled   = Tall nmaster delta ratio
+     resizeTiled = ResizableTall nmaster delta ratio []
+
+     -- The default number of windows in the master pane
+     nmaster = 1
+
+     -- Default proportion of screen occupied by master pane
+     ratio   = 1/2
+
+     -- Percent of screen to increment by when resizing panes
+     delta   = 3/100
+
 myKeys = \c -> mkKeymap c $
 	[("<XF86AudioRaiseVolume>", spawn "amixer -D pulse set Master 2%+ unmute")
 	,("<XF86AudioLowerVolume>", spawn "amixer -D pulse set Master 2%- unmute")

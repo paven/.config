@@ -10,7 +10,8 @@ Config { font = "xft:mono-12"
        , hideOnStart = False
        , allDesktops = True
        , overrideRedirect = False
-       , commands = [ Run DynNetwork  [ "-L", "50"
+       , commands = [ Run StdinReader
+					, Run DynNetwork  [ "-L", "50"
                       , "-H","300"
                       , "--normal" , "green"
                       , "--high","red"
@@ -31,5 +32,5 @@ Config { font = "xft:mono-12"
 
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %multicpu% | %memory% * %swap% | <action=`beesu gnome-control-center network & echo hej` button=1>Net: %dynnetwork%</action>  }{ <fc=#ee9a00>%date%</fc> | %battery% "
+       , template = " <fc=#ee9a00>%date%</fc> | %battery% | %StdinReader%  }{ %multicpu% | %memory% * %swap% | <action=`beesu gnome-control-center network & echo hej` button=1>Net: %dynnetwork%</action>  "
        }
