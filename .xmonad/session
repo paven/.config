@@ -1,3 +1,9 @@
+nm-applet &
+tint2 &
+pnmixer &
+xfce4-volumed &
+xfce4-power-manager &
+
 export JAVA_HOME=/usr/java/jdk1.7.0_71/
 #~/.screenlayout/3LandscapeCanter.sh &
 xloadimage -onroot /home/pvn/background/openbox_default_desktop.png

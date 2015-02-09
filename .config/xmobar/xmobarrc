@@ -3,7 +3,8 @@ Config { font = "xft:mono-12"
        , border = TopB
        , bgColor = "black"
        , fgColor = "grey"
-       , position = Top
+       , position = TopW L 50
+
        , lowerOnStart = True
        , pickBroadest = False
        , persistent = False
@@ -11,15 +12,15 @@ Config { font = "xft:mono-12"
        , allDesktops = True
        , overrideRedirect = False
        , commands = [ Run StdinReader
-					, Run DynNetwork  [ "-L", "50"
-                      , "-H","300"
-                      , "--normal" , "green"
-                      , "--high","red"
-                      ] 10
+					-- , Run DynNetwork  [ "-L", "50"
+                    --  , "-H","300"
+                    --  , "--normal" , "green"
+                    --  , "--high","red"
+                     -- ] 10
                     , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
-				    , Run Memory ["-t","Mem: <usedratio>%","-L","40","-H","70","-l","green","-n","orange","-h","red"] 10
+				    , Run Memory ["-t","<usedratio>%","-L","40","-H","70","-l","green","-n","orange","-h","red"] 10
 				    , Run Swap ["-t","Swap: <usedratio>%","-L","40","-H","70","-l","green","-n","orange","-h","red"] 10
-					, Run Date "<fc=#93a1a1>%a %Y-%m-%d %H:%M</fc>" "date" 10
+					-- , Run Date "<fc=#93a1a1>%a %Y-%m-%d %H:%M</fc>" "date" 10
 					    , Run MultiCpu    [ "-t", "Cpu: <total0>% <total1>% <total2>% <total3>%"
                       , "-L", "5"
                       ,"-H", "50"
@@ -27,10 +28,10 @@ Config { font = "xft:mono-12"
                       ,"-n", "orange"
                       ,"-h","red"
                       ] 10
-                    , Run BatteryP ["BAT0"] ["-t","Batt: <acstatus> \[<left>% / <timeleft>\]","--","-O","<fc=green>!</fc>","-o","<fc=red>X</fc>","-f", "/sys/class/power_supply/ADP1/online"] 10
+                    , Run BatteryP ["BAT0"] ["-t","<acstatus> \[<left>% / <timeleft>\]","--","-O","<fc=green>!</fc>","-o","<fc=red>X</fc>","-f", "/sys/class/power_supply/ADP1/online"] 10
                     ]
 
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " <fc=#ee9a00>%date%</fc> | %battery% | %StdinReader%  }{ %multicpu% | %memory% * %swap% | <action=`beesu gnome-control-center network & echo hej` button=1>Net: %dynnetwork%</action>  "
+       , template = " %StdinReader% }{  %battery% |  %multicpu% | %memory% "
        }

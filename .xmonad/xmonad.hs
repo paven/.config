@@ -38,6 +38,9 @@ import XMonad.Actions.CycleWS
 import XMonad.Util.Run
 import XMonad.Actions.FloatSnap
 
+import XMonad.Hooks.ManageDocks
+
+import XMonad.Hooks.ScreenCorners
 
 
 
@@ -51,15 +54,15 @@ main = do
            terminal = myTerminal
            , modMask     = mod4Mask
            , keys               = myKeys <+> keys config
-           , startupHook = execScriptHook "startup"
            , workspaces = myWorkspaces
            , layoutHook = mylayoutHook
+           , manageHook = manageDocks
      }
 
 myBar = "xmobar"
 myTerminal      = "mate-terminal"
 
-myWorkspaces = ["1:main", "2:later" , "2:steam"]
+myWorkspaces = ["1", "2", "3", "L" , "P"]
 mylayoutHook = avoidStruts $
                 named "tall" (smartBorders resizeTiled) 
             ||| named "three" (smartBorders threeCol) 
@@ -89,8 +92,8 @@ myKeys = \c -> mkKeymap c $
 	,("<XF86MonBrightnessUp>", spawn "xbacklight +10")
 	,("<XF86MonBrightnessDown>", spawn "xbacklight -9")
 	--Between Screens
-	, (("M-<Home>"  ), shiftPrevScreen >> prevScreen)
-	, (("M-<End>"), shiftNextScreen >> nextScreen)
+	, (("M-<End>"  ), shiftPrevScreen >> prevScreen)
+	, (("M-<Home>"), shiftNextScreen >> nextScreen)
 	, (("M-<Left>"), prevScreen)
 	, (("M-<Right>"), nextScreen)
 
