@@ -1,0 +1,72 @@
+==================================================================
+https://keybase.io/pvn
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://www.mumma.nu
+  * I am pvn (https://keybase.io/pvn) on keybase.
+  * I have a public key with fingerprint D7DB 40A3 CA7B E6B7 2C63  B490 3BD3 8E81 B4B5 D11A
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "d7db40a3ca7be6b72c63b4903bd38e81b4b5d11a",
+            "host": "keybase.io",
+            "key_id": "3bd38e81b4b5d11a",
+            "kid": "01012c92dca0fe5b01ed7d11973e71d480a71d2cbbf06bd736fdc736294be6ab66450a",
+            "uid": "f2875d43bffd1e5345c84f00df0e7a00",
+            "username": "pvn"
+        },
+        "service": {
+            "hostname": "www.mumma.nu",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1423564510,
+    "expire_in": 157680000,
+    "prev": null,
+    "seqno": 1,
+    "tag": "signature"
+}
+
+which yields the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.1
+Comment: https://keybase.io/crypto
+
+yML/AnicO8LLzMDFaH25r3HL1otSjKcP/C1lCLl57161UlJ+SqWSVbVSdiqYSsvM
+S08tKijKzCtRslJKMU9JMjFINE5ONE9KNUsyN0o2M04ysTQwTkoxtki1MEwySTJN
+MTRMVNJRysgvBukAGpOUWJyql5kPFANy4jNTgKJY1GeDJQwMDQyNki2NUpITDdJS
+TZMMDFOBdhoaWpobp5obpphYGCQCKaPkpKQ0A7OkFHNjs7SUZCBpZGkCdFBikpmZ
+iakByLhSsHFpRhbmpikmxklpaSmGqabGJqbJFiZpBgYpaQap5okGBiCFxalFeYm5
+qUDVBWV5SrU6SkCBsszkVJDvQZ6ASpaXl+vllubmJurllQK1FRTll+Qn5+cAZTJK
+SgqsQBpLKgvAKlOT4qFmxCdl5qUAQxCooSy1qDgzP0/JyhCoMrkkE2SooYmRsSnQ
+xYYGOkqpFQWZRanxmSAVpuZmFgZAALImtUzJKq80JwfkrsK8fKAs0KLEdKA9xZnp
+eYklpUWpSrWHDsawMDByMbCxMoFikYGLUwAWtxv28f/3ZspyebZf4c+K2v0e+pyP
+syzvdAWwteiyC2zeWygidS8wz32C+5Ybd505qqXsfvzgizEo7c/X2hFetqb194KP
+k6KynkzR01XZuz9mcuHtZ6Jv797qfrDW6uNCtSPRQWcDNBbM5arZwnVy1rvtL2d7
+VLi53/0fyyWlwPKBL4t77p/eSdfiV7tv8pI8vP7x65XdG1ddblpsun950uVzjwt5
+mqftu+S4k/eRfbNx/YOd22K3LdCRte9Si5TcJrn2jvqPta+vXOW9e0XtwItvz09e
+X2PY0Ccnvzn566mc+oLFtvb85empbTMZ/xz5KmS+k/djWuudvPgLTX9luHysZfbN
+8/WetdRbh2eH1beMTb6iyq8M0r9zM647q+0psMwp0X1zxNE1M8ImnMuZ5LJ3xk5L
+zRcMZRkp6eL/LQI3qTF1xx5463tE5/MKc77bAbuWRn86JbLlduPmoP3rxdKjttyw
+ZtRnLXA0bn7pV6oYvc1Ps7PzvhTvDe29Jb1Hux7t+uoYsPrbMmb1+au/Jl04Vnul
+LvnimdV9h6elJ5R/cZPYZNct4Jjk6M7rVKgmt/v+mnA5A7fX1u4C/wqVGpeFbJjK
+c/nMjrgl7GIKGQfT3Jf6d8YcPhe89Nc5B/5Wq5hwv5rDe+V+zZ/6OkyF8Y3V1Zdf
+l7hfW3Fn8wm1HskojrCrX8MOBBzj2iH7uOb4Owd/ycnbqp8YJy51Nj4zLaIKAIXK
+m3I=
+=YEIK
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/pvn
+
+==================================================================
