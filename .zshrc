@@ -78,5 +78,7 @@ export PATH="/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias b=birgit
 
 . /home/pvn/.config/z/z.sh
+. /home/pvn/opt/s/s.sh

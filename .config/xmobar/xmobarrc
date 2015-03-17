@@ -1,37 +1,42 @@
 Config { font = "xft:mono-12"
+       , allDesktops = True
        , borderColor = "black"
        , border = TopB
        , bgColor = "black"
        , fgColor = "grey"
-       , position = TopW L 50
-
+       , position = Bottom
+       
        , lowerOnStart = True
        , pickBroadest = False
        , persistent = False
        , hideOnStart = False
-       , allDesktops = True
+       
        , overrideRedirect = False
        , commands = [ Run StdinReader
-					-- , Run DynNetwork  [ "-L", "50"
-                    --  , "-H","300"
-                    --  , "--normal" , "green"
-                    --  , "--high","red"
-                     -- ] 10
-                    , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+					, Run Locks
+					, Run DynNetwork  [ "-L", "50"
+                      , "-H","300"
+                      , "--normal" , "green"
+                      , "--high","red"
+                      , "-m", "3"
+                    ] 10
+                    -- , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
 				    , Run Memory ["-t","<usedratio>%","-L","40","-H","70","-l","green","-n","orange","-h","red"] 10
-				    , Run Swap ["-t","Swap: <usedratio>%","-L","40","-H","70","-l","green","-n","orange","-h","red"] 10
-					-- , Run Date "<fc=#93a1a1>%a %Y-%m-%d %H:%M</fc>" "date" 10
-					    , Run MultiCpu    [ "-t", "Cpu: <total0>% <total1>% <total2>% <total3>%"
+				    , Run Swap ["-t","<usedratio>%","-L","5","-H","30","-l","green","-n","orange","-h","red"] 1000
+					, Run Date "<fc=#93a1a1>%a %Y-%m-%d [%H:%M]</fc>" "date" 10
+					, Run MultiCpu    [ "-t", "Cpu: <total0>% <total1>% <total2>% <total3>%"
+					  , "-p", "2"
                       , "-L", "5"
                       ,"-H", "50"
                       ,"-l", "green"
                       ,"-n", "orange"
                       ,"-h","red"
                       ] 10
-                    , Run BatteryP ["BAT0"] ["-t","<acstatus> \[<left>% / <timeleft>\]","--","-O","<fc=green>!</fc>","-o","<fc=red>X</fc>","-f", "/sys/class/power_supply/ADP1/online"] 10
+                    , Run BatteryP ["BAT0"] ["-t","<acstatus> \[<left>% / <timeleft>\]","--","-O","<fc=green>!</fc>","-o","<fc=red>X</fc>","-f", "/sys/class/power_supply/ADP1/online", "-p", "3"] 10
+                    --, Run Date "%Y-%m-%d <fc=#ee9a00>%H:%M</fc>" "date" 10
                     ]
 
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{  %battery% |  %multicpu% | %memory% "
+       , template = "%date% %StdinReader% }{ %locks% %dynnetwork% |%multicpu% |Mem: %memory%+%swap% |Bat:%battery%"
        }

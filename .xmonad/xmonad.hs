@@ -52,8 +52,8 @@ main = do
      let config = maybe desktopConfig desktop session
      xmonad =<< xmobar config{
            terminal = myTerminal
-           , modMask     = mod4Mask
-           , keys               = myKeys <+> keys config
+           , modMask    = mod4Mask
+           , keys       = myKeys <+> keys config
            , workspaces = myWorkspaces
            , layoutHook = mylayoutHook
            , manageHook = manageDocks
@@ -65,13 +65,11 @@ myTerminal      = "mate-terminal"
 myWorkspaces = ["1", "2", "3", "L" , "P"]
 mylayoutHook = avoidStruts $
                 named "tall" (smartBorders resizeTiled) 
-            ||| named "three" (smartBorders threeCol) 
-            ||| named "borderFull" (smartBorders Full)
-            ||| tabbed shrinkText defaultTheme 
+            ||| named "Full" (smartBorders Full)
   where
      -- default tiling algorithm partitions the screen into two panes
      
-     threeCol    = ThreeCol nmaster delta ratio
+     threeCol    = ThreeCol nmaster delta ratio 
 
      tiled   = Tall nmaster delta ratio
      resizeTiled = ResizableTall nmaster delta ratio []
@@ -92,8 +90,8 @@ myKeys = \c -> mkKeymap c $
 	,("<XF86MonBrightnessUp>", spawn "xbacklight +10")
 	,("<XF86MonBrightnessDown>", spawn "xbacklight -9")
 	--Between Screens
-	, (("M-<End>"  ), shiftPrevScreen >> prevScreen)
-	, (("M-<Home>"), shiftNextScreen >> nextScreen)
+	, (("M-<Home>"  ), shiftPrevScreen >> prevScreen)
+	, (("M-<End>"), shiftNextScreen >> nextScreen)
 	, (("M-<Left>"), prevScreen)
 	, (("M-<Right>"), nextScreen)
 
