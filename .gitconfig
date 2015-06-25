@@ -3,6 +3,7 @@
 	name = Patrik Gustafsson
 [core]
 	whitespace = trailing-space,space-before-tab
+	quotepath = off
 [apply]
 	whitespace = fix
 [merge]

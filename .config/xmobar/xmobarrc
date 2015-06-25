@@ -1,17 +1,19 @@
 Config { font = "xft:mono-12"
        , allDesktops = True
+       , iconRoot = "."
        , borderColor = "black"
        , border = TopB
        , bgColor = "black"
        , fgColor = "grey"
        , position = Bottom
-       
        , lowerOnStart = True
-       , pickBroadest = False
-       , persistent = False
+       , pickBroadest = True
+       , persistent = True
        , hideOnStart = False
-       
        , overrideRedirect = False
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%date% %StdinReader% }{ %locks% %dynnetwork% |%multicpu% |Bat: %battery%|Mem: %memory%+%swap%"
        , commands = [ Run StdinReader
 					, Run Locks
 					, Run DynNetwork  [ "-L", "50"
@@ -19,8 +21,8 @@ Config { font = "xft:mono-12"
                       , "--normal" , "green"
                       , "--high","red"
                       , "-m", "3"
-                    ] 10
-                    -- , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+						] 10
+                    , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
 				    , Run Memory ["-t","<usedratio>%","-L","40","-H","70","-l","green","-n","orange","-h","red"] 10
 				    , Run Swap ["-t","<usedratio>%","-L","5","-H","30","-l","green","-n","orange","-h","red"] 1000
 					, Run Date "<fc=#93a1a1>%a %Y-%m-%d [%H:%M]</fc>" "date" 10
@@ -32,11 +34,13 @@ Config { font = "xft:mono-12"
                       ,"-n", "orange"
                       ,"-h","red"
                       ] 10
-                    , Run BatteryP ["BAT0"] ["-t","<acstatus> \[<left>% / <timeleft>\]","--","-O","<fc=green>!</fc>","-o","<fc=red>X</fc>","-f", "/sys/class/power_supply/ADP1/online", "-p", "3"] 10
-                    --, Run Date "%Y-%m-%d <fc=#ee9a00>%H:%M</fc>" "date" 10
+                    -- , Run BatteryP ["BAT0"] ["-t","<acstatus> \[<left>% / <timeleft>\]","--","-O","<fc=green>!</fc>","-o","<fc=red>X</fc>", "-p", "3"] 10
+                        , Run BatteryP ["BAT0"]
+                  ["-t", "<acstatus>"
+                  , "-L", "10", "-H", "80"
+                  , "-l", "red", "-h", "green"
+                  , "--", "-O", "<fc=green>!</fc>", "-o", "<fc=red>X</fc><left>% / <timeleft> "
+                  ] 10
+                    -- , Run Date "%Y-%m-%d <fc=#ee9a00>%H:%M</fc>" "date" 10
                     ]
-
-       , sepChar = "%"
-       , alignSep = "}{"
-       , template = "%date% %StdinReader% }{ %locks% %dynnetwork% |%multicpu% |Mem: %memory%+%swap% |Bat:%battery%"
        }

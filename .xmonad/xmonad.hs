@@ -22,7 +22,6 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 import System.Posix.Env (getEnv)
 import Data.Maybe (maybe)
-import XMonad
 import XMonad.Config.Desktop
 import XMonad.Config.Gnome
 import XMonad.Config.Kde
@@ -30,7 +29,6 @@ import XMonad.Config.Xfce
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.Script
 import XMonad.Layout.Tabbed
-import XMonad
 import XMonad.Hooks.DynamicLog
 import Graphics.X11.ExtraTypes.XF86
 import qualified Data.Map as M
@@ -41,7 +39,9 @@ import XMonad.Actions.FloatSnap
 import XMonad.Hooks.ManageDocks
 
 import XMonad.Hooks.ScreenCorners
+import XMonad.Actions.WindowGo
 
+-- import XMonad.Layout.BinarySpacePartition -v
 
 
 -- see ~/.xmonad/session for autostart apps
@@ -57,12 +57,14 @@ main = do
            , workspaces = myWorkspaces
            , layoutHook = mylayoutHook
            , manageHook = manageDocks
+           , XMonad.focusFollowsMouse = True
+           , XMonad.clickJustFocuses = False
      }
 
 myBar = "xmobar"
-myTerminal      = "mate-terminal"
+myTerminal      = "sakura"
 
-myWorkspaces = ["1", "2", "3", "L" , "P"]
+myWorkspaces = ["1", "2", "3", "4:L" , "5:P"]
 mylayoutHook = avoidStruts $
                 named "tall" (smartBorders resizeTiled) 
             ||| named "Full" (smartBorders Full)
@@ -75,7 +77,7 @@ mylayoutHook = avoidStruts $
      resizeTiled = ResizableTall nmaster delta ratio []
 
      -- The default number of windows in the master pane
-     nmaster = 1
+     nmaster = 2
 
      -- Default proportion of screen occupied by master pane
      ratio   = 1/2
@@ -110,12 +112,17 @@ myKeys = \c -> mkKeymap c $
 
 	--Layout
 	, (("M-C-<Space>"), setLayout $ XMonad.layoutHook c)
+	, (("M-C-1"), spawn  "~/.screenlayout/1.sh" )
+	, (("M-C-2"), spawn  "~/.screenlayout/2.sh" )
+	, (("M-C-3"), spawn " ~/.screenlayout/3.sh" )
 
 	--Programs
 
 	, (("M-t"), spawn $ XMonad.terminal c )
+	, (("M-l"), spawn "xscreensaver-command -lock" )
+	, (("M-w"), runOrRaise "google-chrome" (className =? "Google-chrome-stable") )
+	, (("M-n"), runOrRaise "netbeans" (className =? "netbeans") )
 	, (("M-S-x"), kill)
-
     ]
 
 desktop "gnome" = gnomeConfig

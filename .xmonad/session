@@ -3,13 +3,16 @@ tint2 &
 synapse -s &
 pnmixer &
 mate-power-manager &
+xscreensaver &
 
 export JAVA_HOME=/usr/java/jdk1.7.0_71/
 ~/.screenlayout/3LandscapeCanter.sh &
 xloadimage -onroot /home/pvn/background/openbox_default_desktop.png &
 ~/.config/environment.sh &
+~/.config/screens.sh &
 
 --needs network
 insync start &
 dropbox start &
 
+sakura &
