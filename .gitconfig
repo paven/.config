@@ -18,6 +18,10 @@
 [branch]
 	autosetuprebase = always
 [alias]
-ignore = update-index --assume-unchanged
-unignore = update-index --no-assume-unchanged
-ignored = !git ls-files -v | grep "^[[:lower:]]"
+b =!birgit
+bir =!birgit
+birgit =!birgit
+
+[diff "xlsx"]
+	binary=true
+	textconv =/usr/bin/unoconv -f csv --stdout
