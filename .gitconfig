@@ -4,6 +4,7 @@
 [core]
 	whitespace = trailing-space,space-before-tab
 	quotepath = off
+	excludesfile = /home/pvn/.config/git/ignore
 [apply]
 	whitespace = fix
 [merge]
