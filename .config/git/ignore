@@ -1,1 +1,6 @@
 mavenprojects/thecube-gwt-client/src/main/webapp/META-INF/context.xml
+geoserver_data/gwc/diskquota_page_store_h2/
+geoserver_data/gwc/geowebcache.xml
+*.iml
+.~lock.*
+.idea/
