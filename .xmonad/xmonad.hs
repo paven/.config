@@ -40,6 +40,7 @@ import XMonad.Hooks.ManageDocks
 
 import XMonad.Hooks.ScreenCorners
 import XMonad.Actions.WindowGo
+import XMonad.Hooks.SetWMName
 
 -- import XMonad.Layout.BinarySpacePartition -v
 
@@ -52,6 +53,7 @@ main = do
      let config = maybe desktopConfig desktop session
      xmonad =<< xmobar config{
            terminal = myTerminal
+           , startupHook = setWMName "LG3D"
            , modMask    = mod4Mask
            , keys       = myKeys <+> keys config
            , workspaces = myWorkspaces
