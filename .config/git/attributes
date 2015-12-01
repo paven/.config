@@ -1,3 +1,9 @@
+[attr]markdown text eolf=lf whitespace=tab-in-indent,-blank-at-eol,tabwidth=4
+
+*.md markdown
+
 *.xlsx	diff=xlsx
 *.xls 	diff=xlsx
 *.odt	diff=xlsx
+
+

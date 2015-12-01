@@ -1,0 +1,3 @@
+[submodule "opt/git-amend-old"]
+	path = opt/git-amend-old
+	url = git@github.com:paven/git-amend-old.git
