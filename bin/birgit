@@ -1,3 +1,2 @@
 #!/bin/bash
-MY_PATH="`dirname \"$0\"`"
-$MY_PATH/birGit/birgit ${*:1}
+~/opt/birGit/birgit ${*:1}
