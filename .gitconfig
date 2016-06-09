@@ -36,3 +36,5 @@
 	submoduleSummary = true
 [rebase]
 	missingCommitsChec = warn
+[color]
+	ui = auto
