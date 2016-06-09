@@ -1,0 +1,4 @@
+[submodule "opt/birGit"]
+	path = opt/birGit
+	url = git@github.com:paven/birGit.git
+	branch = master
