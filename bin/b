@@ -1,0 +1,2 @@
+#!/bin/bash
+~/opt/birGit/birgit ${*:1}
