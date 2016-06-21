@@ -2,3 +2,12 @@
 	path = opt/birGit
 	url = git@github.com:paven/birGit.git
 	branch = master
+[submodule "opt/decktape"]
+	path = opt/decktape
+	url = https://github.com/astefanutti/decktape.git
+[submodule ".vim/bundle/vim-fugitive"]
+	path = .vim/bundle/vim-fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule "opt/tasksync"]
+	path = opt/tasksync
+	url = git@github.com:burnison/tasksync.git
