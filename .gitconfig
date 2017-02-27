@@ -36,5 +36,6 @@
 	submoduleSummary = true
 [rebase]
 	missingCommitsChec = warn
+	autoStash = true
 [color]
-	ui = auto
+	ui = true
