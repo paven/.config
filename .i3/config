@@ -169,13 +169,21 @@ bindsym $mod+ctrl+Right move workspace to output right
 #assign [class="Thunderbird"] 2
 #assign [class="Firefox"] 3
 
+
+#Put workspace on specfic screen
+workspace 1 output eDP1
+workspace 2 output DP1-1
+workspace 3 output DP1-1
+workspace 4 output DP1-2
+
+
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 2
 for_window [class="Calamares"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
 for_window [title="File Transfer*"] floating enable
 for_window [class="Galculator"] floating enable border pixel 2
-for_window [class="GParted"] floating enable border normal
+#for_window [class="GParted"] floating enable border normal
 for_window [title="i3_help"] floating enable sticky enable border normal
 for_window [class="Lightdm-gtk-greeter-settings"] floating enable
 for_window [class="Lxappearance"] floating enable sticky enable border normal
@@ -191,7 +199,7 @@ for_window [class="Pavucontrol"] floating enable
 for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
 for_window [class="Simple-scan"] floating enable border normal
 for_window [class="(?i)System-config-printer.py"] floating enable border normal
-for_window [class="Skype"] floating enable border normal
+#for_window [class="Skype"] floating enable border normal
 for_window [class="Thus"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
@@ -258,7 +266,7 @@ mode "resize" {
 }
 
 # Lock screen
-bindsym $mod+9 exec --no-startup-id blurlock
+bindsym $mod+Alt+l exec --no-startup-id blurlock
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
@@ -279,20 +287,23 @@ bar {
 }
 
 # Autostart applications
-exec_always --no-startup-id ~/.screenlayout/2.sh
+exec_always --no-startup-id ~/.screenlayout/auto.sh
+exec_always --no-startup-id ~/.screenlayout/auto.sh
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore
-exec --no-startup-id nm-applet
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id pamac-tray
-exec --no-startup-id clipit
-exec --no-startup-id blueman
-exec --no-startup-id synapse -s || synapse -s || synapse -s &
+#exec --no-startup-id nitrogen --restore
+#exec --no-startup-id nm-applet
+#exec --no-startup-id xfce4-power-manager
+#exec --no-startup-id pamac-tray
+#exec --no-startup-id clipit
+#exec --no-startup-id blueman
+#exec --no-startup-id synapse -s || synapse -s || synapse -s &
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id compton -b
-exec --no-startup-id start_conky_grey
+#exec --no-startup-id start_conky_grey
 # exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 10 -locker blurlock
+exec --no-startup-id xautolock -time 10 -locker blurlock -corners 00+-
+
+bindsym $mod+Alt+f focus parent; fullscreen
 
 # Theme colors
 client.focused #2ECC71 #2ECC71 #000000 #FFFFFF
@@ -304,7 +315,7 @@ client.urgent #274D01 #900000 #FFFFFF #900000
 #############################
 
 # Disable window titlebars entirely
-for_window [class="^.*"] border pixel 2
+#for_window [class="^.*"] border pixel 2
 
 # Set inner/outer gaps
 gaps inner 10
