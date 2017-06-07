@@ -76,7 +76,7 @@ URxvt*scrollTtyKeypress: true
 
 ! for 'fake' transparency (without Compton) uncomment the following three lines
 ! URxvt*inheritPixmap:                  true
-! URxvt*transparent:                    true
+! URxvt*transparent:                    false
 ! URxvt*shading:                        138
 
 ! other possible settings:
