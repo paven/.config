@@ -160,21 +160,37 @@ bindsym $mod+ctrl+Left  move workspace to output left
 bindsym $mod+ctrl+Down  move workspace to output down
 bindsym $mod+ctrl+Up    move workspace to output up
 bindsym $mod+ctrl+Right move workspace to output right
-
-
-
-# Open applications on specific workspaces
-# assign [class="Thunderbird"] 1
-#assign [class="idea"] 2
-#assign [class="Thunderbird"] 2
-#assign [class="Firefox"] 3
+bindsym $mod+ctrl+1 	move workspace 1 to output eDP1
+bindsym $mod+ctrl+2 	move workspace 2 to output eDP1
+bindsym $mod+ctrl+3 	move workspace 3 to output eDP1
+bindsym $mod+ctrl+4 	move workspace 4 to output eDP1
+bindsym $mod+ctrl+5 	move workspace 5 to output eDP1
+bindsym $mod+ctrl+6 	move workspace 6 to output eDP1
+bindsym $mod+ctrl+7 	move workspace 7 to output eDP1
+bindsym $mod+ctrl+8 	move workspace 8 to output eDP1
 
 
 #Put workspace on specfic screen
-workspace 1 output eDP1
+#1 slack
+workspace 1 output DP1-1
+assign [class="(?i)slack"] 1
+
+#2 Mail
 workspace 2 output DP1-1
+assign [class="(?i)nylas"] 2
+
+#3 web
 workspace 3 output DP1-1
+#assign [class="(?i)thunderbird"] 3
+assign [class="(?i)firefox"] 3
+assign [class="(?i)google-chrome-stable"] 3
+assign [class="(?i)google-chrome"] 3
+
+
+#4: code
 workspace 4 output DP1-2
+assign [class="idea"] 4
+
 
 
 # Open specific applications in floating mode
@@ -204,10 +220,7 @@ for_window [class="Thus"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 
-assign [class="(?i)thunderbird"] 2
-assign [class="(?i)firefox"] 3
-assign [class="idea"] 4
-assign [class="(?i)slack"] 2
+
 #for_window [class="(?i)slack"] workspace 2, focus
 
 
@@ -288,7 +301,6 @@ bar {
 
 # Autostart applications
 exec_always --no-startup-id ~/.screenlayout/auto.sh
-exec_always --no-startup-id ~/.screenlayout/auto.sh
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #exec --no-startup-id nitrogen --restore
 #exec --no-startup-id nm-applet
@@ -298,10 +310,11 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #exec --no-startup-id blueman
 #exec --no-startup-id synapse -s || synapse -s || synapse -s &
 # exec_always --no-startup-id sbxkb
-exec --no-startup-id compton -b
+# exec --no-startup-id compton -b
 #exec --no-startup-id start_conky_grey
 # exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 10 -locker blurlock -corners 00+-
+exec --no-startup-id xautolock -time 10 -locker 'i3lock -d -c 000000' -corners 00+-
+exec_always --no-startup-id ~/.screenlayout/auto.sh
 
 bindsym $mod+Alt+f focus parent; fullscreen
 
